@@ -35,8 +35,10 @@ public class CustomerEntity extends BaseEntity implements UserDetails {
     private String city;
     private String postalCode;
 
+    @Column(unique = true)
     private String phone;
 
+    @Column(unique = true)
     private String email;
 
     private String password;

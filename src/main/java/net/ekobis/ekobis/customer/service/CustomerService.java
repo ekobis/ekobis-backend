@@ -1,7 +1,9 @@
 package net.ekobis.ekobis.customer.service;
 
 import net.ekobis.ekobis.customer.domain.dto.request.CreateCustomerRequest;
+import net.ekobis.ekobis.customer.domain.dto.request.CustomerIdRequest;
 import net.ekobis.ekobis.customer.domain.dto.request.UpdateCustomerInformationRequest;
+import net.ekobis.ekobis.customer.domain.dto.response.CustomerDetailResponse;
 import net.ekobis.ekobis.customer.domain.dto.response.CustomerResponse;
 import net.ekobis.ekobis.customer.domain.dto.response.CustomersResponse;
 import net.ekobis.ekobis.customer.domain.entity.CustomerEntity;
@@ -16,7 +18,7 @@ public interface CustomerService {
 
     ResponseEntity<List<CustomersResponse>> getAllCustomer();
 
-    ResponseEntity<CustomerResponse> getCustomerById(String customerId);
+    ResponseEntity<CustomerDetailResponse> getCustomerByIdForDetail(CustomerIdRequest customerId);
 
-    ResponseEntity<CustomerResponse> deleteCustomerById(String customerId);
+    ResponseEntity<?> deleteCustomerById(String customerId);
 }

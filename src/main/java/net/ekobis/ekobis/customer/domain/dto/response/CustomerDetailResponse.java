@@ -1,7 +1,5 @@
-package net.ekobis.ekobis.customer.domain.dto.request;
+package net.ekobis.ekobis.customer.domain.dto.response;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -16,34 +14,24 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateCustomerRequest {
+public class CustomerDetailResponse {
 
-    @NotBlank
+    private String customerId;
+
     private String firstName;
 
-    @NotBlank
     private String lastName;
 
-    @NotBlank
     private LocalDate birthDate;
 
-    @NotBlank
     private String street;
 
-    @NotBlank
     private String city;
 
-    @NotBlank
     private String postalCode;
 
-    @NotBlank
-    @Size(min = 11,max = 11)
     private String phone;
 
-    @Email
     private String email;
-
-    @NotBlank
-    private String password;
 
 }
