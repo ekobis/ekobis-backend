@@ -1,1 +1,0 @@
-# ekobis-backend
