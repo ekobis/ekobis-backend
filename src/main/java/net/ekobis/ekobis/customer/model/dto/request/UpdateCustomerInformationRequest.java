@@ -1,8 +1,5 @@
-package net.ekobis.ekobis.customer.domain.dto.request;
+package net.ekobis.ekobis.customer.model.dto.request;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

@@ -1,19 +1,23 @@
 package net.ekobis.ekobis.customer.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import net.ekobis.ekobis.customer.domain.dto.request.CreateCustomerRequest;
-import net.ekobis.ekobis.customer.domain.dto.request.CustomerIdRequest;
-import net.ekobis.ekobis.customer.domain.dto.request.UpdateCustomerInformationRequest;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomerDetailResponse;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomerResponse;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomersResponse;
-import net.ekobis.ekobis.customer.domain.entity.CustomerEntity;
-import net.ekobis.ekobis.customer.domain.mapper.CustomerMapper;
+import net.ekobis.ekobis.customer.model.dto.request.CreateCustomerRequest;
+import net.ekobis.ekobis.customer.model.dto.request.CustomerIdRequest;
+import net.ekobis.ekobis.customer.model.dto.request.UpdateCustomerInformationRequest;
+import net.ekobis.ekobis.customer.model.dto.response.CustomerDetailResponse;
+import net.ekobis.ekobis.customer.model.dto.response.CustomerResponse;
+import net.ekobis.ekobis.customer.model.dto.response.CustomersResponse;
+import net.ekobis.ekobis.customer.model.entity.CustomerEntity;
+import net.ekobis.ekobis.customer.model.entity.enums.Role;
+import net.ekobis.ekobis.customer.model.mapper.CustomerMapper;
 import net.ekobis.ekobis.customer.repository.CustomerRepository;
 import net.ekobis.ekobis.customer.service.CustomerService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,13 +27,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity<CustomerResponse> createCustomer(CreateCustomerRequest customerRequest) {
 
         CustomerEntity customer = customerMapper.fromCreateCustomerRequest(customerRequest);
 
-        CustomerResponse response = customerMapper.toCustomerResponse(customer);
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customer.setCreatedDate(LocalDate.now());
+        customer.setRoles(Collections.singletonList(Role.CUSTOMER));
+        
+        CustomerResponse response = customerMapper.toCustomerResponse(customerRepository.save(customer));
 
         return ResponseEntity.ok(response);
 
@@ -44,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         CustomerEntity customer = customerMapper.fromUpdateCustomerInformationRequest(updateCustomerInformationRequest);
 
-        CustomerResponse response = customerMapper.toCustomerResponse(customer);
+        CustomerResponse response = customerMapper.toCustomerResponse(customerRepository.save(customer));
 
         return ResponseEntity.ok(response);
 
@@ -65,7 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Not Found ID");
         }
 
-        CustomerEntity customer = customerMapper.fromCustomerIdRequest(customerId);
+        CustomerEntity customer = customerRepository.findById(customerId.getCustomerId()).orElse(null);
 
         CustomerDetailResponse response = customerMapper.toCustomerDetailResponse(customer);
 

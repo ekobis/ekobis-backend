@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: ekobis
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1511
+      POSTGRES_DB: ekodb
+    volumes:
+      - postgres_data:/var/lib/postgresql/eko
+
+volumes:
+  postgres_data:

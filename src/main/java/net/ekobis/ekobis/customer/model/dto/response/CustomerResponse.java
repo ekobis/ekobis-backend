@@ -1,4 +1,4 @@
-package net.ekobis.ekobis.customer.domain.dto.response;
+package net.ekobis.ekobis.customer.model.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
