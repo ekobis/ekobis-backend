@@ -6,7 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.ekobis.ekobis.common.model.entity.BaseEntity;
+
+import net.ekobis.ekobis.invoice.domain.entity.InvoiceEntity;
+
 import net.ekobis.ekobis.customer.model.entity.enums.Role;
+
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -59,6 +63,8 @@ public class CustomerEntity extends BaseEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
+    @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL)
+    private List<InvoiceEntity> invoiceEntity;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
