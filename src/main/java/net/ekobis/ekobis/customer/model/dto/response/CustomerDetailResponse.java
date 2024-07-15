@@ -1,8 +1,5 @@
-package net.ekobis.ekobis.customer.domain.dto.response;
+package net.ekobis.ekobis.customer.model.dto.response;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

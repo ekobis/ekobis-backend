@@ -1,10 +1,12 @@
-package net.ekobis.ekobis.customer.domain.entity;
+package net.ekobis.ekobis.customer.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.ekobis.ekobis.common.model.entity.BaseEntity;
-import net.ekobis.ekobis.customer.domain.entity.enums.Role;
+import net.ekobis.ekobis.customer.model.entity.enums.Role;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,8 @@ import java.util.List;
 @Table(name = "customers")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerEntity extends BaseEntity implements UserDetails {
 
     @Id
@@ -44,7 +48,7 @@ public class CustomerEntity extends BaseEntity implements UserDetails {
     private String password;
 
     @Temporal(TemporalType.DATE)
-    private LocalDate createdAt;
+    private LocalDate createdDate;
 
     private boolean enabled;
     private boolean accountNonExpired;

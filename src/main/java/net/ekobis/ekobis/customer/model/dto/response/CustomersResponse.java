@@ -1,6 +1,5 @@
-package net.ekobis.ekobis.customer.domain.dto.request;
+package net.ekobis.ekobis.customer.model.dto.response;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerIdRequest {
-    @NotBlank
+public class CustomersResponse {
     private String customerId;
+    private String firstName;
+    private String lastName;
 }

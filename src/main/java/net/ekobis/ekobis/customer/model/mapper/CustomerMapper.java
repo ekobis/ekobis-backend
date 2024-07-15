@@ -1,15 +1,13 @@
-package net.ekobis.ekobis.customer.domain.mapper;
+package net.ekobis.ekobis.customer.model.mapper;
 
-import net.ekobis.ekobis.customer.domain.dto.request.CreateCustomerRequest;
-import net.ekobis.ekobis.customer.domain.dto.request.CustomerIdRequest;
-import net.ekobis.ekobis.customer.domain.dto.request.UpdateCustomerInformationRequest;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomerDetailResponse;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomerResponse;
-import net.ekobis.ekobis.customer.domain.dto.response.CustomersResponse;
-import net.ekobis.ekobis.customer.domain.entity.CustomerEntity;
+import net.ekobis.ekobis.customer.model.dto.request.CreateCustomerRequest;
+import net.ekobis.ekobis.customer.model.dto.request.CustomerIdRequest;
+import net.ekobis.ekobis.customer.model.dto.request.UpdateCustomerInformationRequest;
+import net.ekobis.ekobis.customer.model.dto.response.CustomerDetailResponse;
+import net.ekobis.ekobis.customer.model.dto.response.CustomerResponse;
+import net.ekobis.ekobis.customer.model.dto.response.CustomersResponse;
+import net.ekobis.ekobis.customer.model.entity.CustomerEntity;
 import org.mapstruct.Mapper;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CustomerMapper {

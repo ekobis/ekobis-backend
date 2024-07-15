@@ -1,4 +1,4 @@
-package net.ekobis.ekobis.customer.domain.entity.enums;
+package net.ekobis.ekobis.customer.model.entity.enums;
 
 import org.springframework.security.core.GrantedAuthority;
 
