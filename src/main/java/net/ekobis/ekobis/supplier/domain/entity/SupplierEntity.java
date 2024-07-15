@@ -18,7 +18,7 @@ public class SupplierEntity extends BaseEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
-    private Long supplierId;
+    private String supplierId;
     private String firstname;
     private Long contactNumber;
     private String street;

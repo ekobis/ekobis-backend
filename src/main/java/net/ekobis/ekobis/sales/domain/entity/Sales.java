@@ -21,8 +21,7 @@ public class Sales extends BaseEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
-
-    private Long salesId;
+    private String salesId;
     private Long productId;
     private Long invoiceId;
     private String quantity;

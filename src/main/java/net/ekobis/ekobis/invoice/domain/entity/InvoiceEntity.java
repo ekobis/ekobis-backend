@@ -18,7 +18,7 @@ public class InvoiceEntity extends BaseEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
-    private Long invoiceId;
+    private String invoiceId;
     private String invoiceNumber;
     private Long date;
     private Long customerId;

@@ -19,7 +19,7 @@ public class IncomeEntity extends BaseEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
-    private Long incomeId;
+    private String incomeId;
     private String firstname;
     private String amount;
     private LocalDate date;
