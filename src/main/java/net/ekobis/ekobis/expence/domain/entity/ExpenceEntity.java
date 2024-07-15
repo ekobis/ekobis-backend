@@ -29,9 +29,4 @@ public class ExpenceEntity extends BaseEntity {
     private String category;
     private String supplierId;
 
-    @OneToMany(mappedBy = "expenceEntity", cascade = CascadeType.ALL)
-    private List<SupplierEntity> supplierEntities;
-
-    @OneToMany(mappedBy = "expenceEntity", cascade = CascadeType.ALL)
-    private List<CategoryEntity> categoryEntities;
 }

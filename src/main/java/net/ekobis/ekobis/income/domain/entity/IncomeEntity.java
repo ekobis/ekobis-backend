@@ -24,8 +24,4 @@ public class IncomeEntity extends BaseEntity {
     private String amount;
     private LocalDate date;
 
-
-    @OneToMany(mappedBy = "incomeEntity", cascade = CascadeType.ALL)
-    private List<IncomeEntity> incomeEntities;
-
 }

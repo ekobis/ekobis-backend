@@ -11,16 +11,12 @@ import org.hibernate.annotations.UuidGenerator;
 
 @Getter
 @Setter
-@Table(name = "categorys")
+@Table(name = "categories")
 @Entity
 public class CategoryEntity extends BaseEntity {
-
     @Id
     @UuidGenerator
     @GeneratedValue
-    private Long categoryId;
+    private String categoryId;
     private String firstName;
-
-
-
 }

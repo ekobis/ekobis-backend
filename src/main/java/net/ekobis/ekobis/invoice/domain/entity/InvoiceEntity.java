@@ -25,6 +25,4 @@ public class InvoiceEntity extends BaseEntity {
     private String totalAmount;
     private String status;
 
-    @OneToMany(mappedBy = "InvoiceEntity", cascade = CascadeType.ALL)
-    private List<Sales> sales;
 }

@@ -7,7 +7,6 @@ import net.ekobis.ekobis.supplier.domain.dto.request.SupplierIdRequest;
 import net.ekobis.ekobis.supplier.domain.dto.request.UpdateSupplierInformationRequest;
 import net.ekobis.ekobis.supplier.domain.dto.response.SupplierDetailResponse;
 import net.ekobis.ekobis.supplier.domain.dto.response.SupplierResponse;
-import net.ekobis.ekobis.supplier.domain.dto.response.SuppliersResponse;
 import net.ekobis.ekobis.supplier.domain.entity.SupplierEntity;
 import net.ekobis.ekobis.supplier.domain.mapper.SupplierMapper;
 import net.ekobis.ekobis.supplier.repository.SupplierRepository;
@@ -78,5 +77,10 @@ public class SupplierServiceImpl implements SupplierService {
     public ResponseEntity<?> deleteSupplierById(String supplierId) {
         supplierRepository.deleteById(supplierId);
         return ResponseEntity.ok("Deleted");
+    }
+
+    @Override
+    public ResponseEntity<SupplierDetailResponse> getSupplierByIdForDetail(SupplierIdRequest supplierId) {
+        return null;
     }
 }

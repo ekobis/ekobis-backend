@@ -63,9 +63,6 @@ public class CustomerEntity extends BaseEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
-    @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL)
-    private List<InvoiceEntity> invoiceEntity;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
