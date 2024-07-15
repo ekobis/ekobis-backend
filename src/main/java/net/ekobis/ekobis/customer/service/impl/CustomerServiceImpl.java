@@ -37,6 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer.setCreatedDate(LocalDate.now());
         customer.setRoles(Collections.singletonList(Role.CUSTOMER));
+
+        customer.setAccountNonExpired(true);
+        customer.setAccountNonLocked(true);
+        customer.setCredentialsNonExpired(true);
+        customer.setEnabled(true);
+
         
         CustomerResponse response = customerMapper.toCustomerResponse(customerRepository.save(customer));
 
@@ -85,5 +91,10 @@ public class CustomerServiceImpl implements CustomerService {
     public ResponseEntity<?> deleteCustomerById(String customerId) {
         customerRepository.deleteById(customerId);
         return ResponseEntity.ok("Deleted");
+    }
+
+    @Override
+    public CustomerEntity getByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }

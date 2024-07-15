@@ -21,5 +21,4 @@ public class ProductController {
     private ResponseEntity<ProductEntity> createProduct(@RequestBody CreateProductRequest product) {
         return productService.createProduct(product);
     }
-
 }

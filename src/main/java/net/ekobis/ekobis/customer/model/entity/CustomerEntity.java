@@ -56,6 +56,7 @@ public class CustomerEntity extends BaseEntity implements UserDetails {
     private boolean credentialsNonExpired;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
 
