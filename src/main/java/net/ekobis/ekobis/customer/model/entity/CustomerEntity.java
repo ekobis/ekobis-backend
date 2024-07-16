@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.ekobis.ekobis.common.model.entity.BaseEntity;
 
-import net.ekobis.ekobis.invoice.domain.entity.InvoiceEntity;
-
 import net.ekobis.ekobis.customer.model.entity.enums.Role;
 
 import org.hibernate.annotations.UuidGenerator;
