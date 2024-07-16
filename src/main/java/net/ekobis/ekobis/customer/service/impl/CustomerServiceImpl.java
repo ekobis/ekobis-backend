@@ -13,7 +13,6 @@ import net.ekobis.ekobis.customer.model.mapper.CustomerMapper;
 import net.ekobis.ekobis.customer.repository.CustomerRepository;
 import net.ekobis.ekobis.customer.service.CustomerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -27,23 +26,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
-    private final PasswordEncoder passwordEncoder;
+    //private final PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity<CustomerResponse> createCustomer(CreateCustomerRequest customerRequest) {
 
         CustomerEntity customer = customerMapper.fromCreateCustomerRequest(customerRequest);
 
-        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        //customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer.setCreatedDate(LocalDate.now());
         customer.setRoles(Collections.singletonList(Role.CUSTOMER));
 
-        customer.setAccountNonExpired(true);
-        customer.setAccountNonLocked(true);
-        customer.setCredentialsNonExpired(true);
-        customer.setEnabled(true);
-
-        
         CustomerResponse response = customerMapper.toCustomerResponse(customerRepository.save(customer));
 
         return ResponseEntity.ok(response);

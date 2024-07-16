@@ -5,10 +5,12 @@ import net.ekobis.ekobis.inventory.model.entity.ProductEntity;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public interface ProductService {
 
-    ResponseEntity<ProductEntity> createProduct(CreateProductRequest createProductRequest);
+    ResponseEntity<Map<String, Object>> createProduct(CreateProductRequest createProductRequest);
 
     ResponseEntity<List<ProductEntity>> getAllProduct();
 
