@@ -1,13 +1,13 @@
 package net.ekobis.ekobis.inventory.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import net.ekobis.ekobis.common.model.entity.BaseEntity;
 import org.hibernate.annotations.UuidGenerator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,5 +18,8 @@ public class CategoryEntity extends BaseEntity {
     @UuidGenerator
     @GeneratedValue
     private String categoryId;
-    private String firstName;
+    private String name;
+
+    @OneToMany
+    private List<ProductEntity> products;
 }

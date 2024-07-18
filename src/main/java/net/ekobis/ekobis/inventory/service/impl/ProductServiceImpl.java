@@ -18,29 +18,6 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
-
     private final ProductRepository productRepository;
-    private final ProductMapper productMapper;
 
-
-    @Override
-    public ResponseEntity<Map<String, Object>> createProduct(CreateProductRequest createProductRequest) {
-        ProductEntity product = productMapper.fromCreateProductRequest(createProductRequest);
-
-        Map<String,Object> response = new LinkedHashMap<>();
-        response.put("status",true);
-        response.put("data",product);
-
-        productRepository.save(product);
-
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
-    }
-
-    @Override
-    public ResponseEntity<List<ProductEntity>> getAllProduct() {
-        List<ProductEntity> productEntities = productRepository.findAll();
-
-        return ResponseEntity.ok(productEntities);
-
-    }
 }

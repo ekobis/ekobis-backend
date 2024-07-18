@@ -9,10 +9,4 @@ import java.util.Map;
 import java.util.Objects;
 
 public interface ProductService {
-
-    ResponseEntity<Map<String, Object>> createProduct(CreateProductRequest createProductRequest);
-
-    ResponseEntity<List<ProductEntity>> getAllProduct();
-
-
 }

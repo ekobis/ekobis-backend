@@ -1,15 +1,14 @@
 package net.ekobis.ekobis.inventory.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.ekobis.ekobis.common.model.entity.BaseEntity;
 import org.hibernate.annotations.UuidGenerator;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "products")
@@ -23,11 +22,16 @@ public class ProductEntity extends BaseEntity {
     @UuidGenerator
     private String productId;
 
-    private String productName;
+    private String name;
 
     private String description;
 
     private Double price;
 
-    private Long stockQuantity;
+    private Double purchasePrice;
+
+    private Double tax;
+
+    @ManyToOne
+    private CategoryEntity category;
 }
