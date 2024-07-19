@@ -13,6 +13,7 @@ public interface ProductService {
 
     ResponseEntity<ProductResponse> createProduct(CreateProductRequest createProductRequest);
 
-
     ResponseEntity<List<ProductResponse>> getAllProduct();
+
+    ResponseEntity<ProductResponse> getProductById(String productId);
 }

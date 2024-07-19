@@ -40,4 +40,15 @@ public class ProductServiceImpl implements ProductService {
 
         return new ResponseEntity<>(productResponses, HttpStatus.OK);
     }
+
+
+    @Override
+    public ResponseEntity<ProductResponse> getProductById(String productId) {
+
+        ProductEntity productEntity = productRepository.findById(productId).orElseThrow(()->new RuntimeException("Not found ID"));
+
+        ProductResponse response = productMapper.toProductResponse(productEntity);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

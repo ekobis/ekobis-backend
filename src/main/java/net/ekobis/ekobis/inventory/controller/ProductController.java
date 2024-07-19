@@ -28,4 +28,9 @@ public class ProductController {
         return productService.getAllProduct();
     }
 
+    @GetMapping("/{productId}")
+    public ResponseEntity<ProductResponse> getProduct(@PathVariable String productId) {
+        return productService.getProductById(productId);
+    }
+
 }

@@ -11,6 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductResponse {
 
+    private String productId;
+
     private String productName;
 
     private String description;
