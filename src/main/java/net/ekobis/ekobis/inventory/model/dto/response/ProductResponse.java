@@ -1,7 +1,5 @@
-package net.ekobis.ekobis.inventory.model.dto.request;
+package net.ekobis.ekobis.inventory.model.dto.response;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,23 +9,18 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateProductRequest {
+public class ProductResponse {
 
-    @NotBlank
     private String productName;
 
-    @NotBlank
     private String description;
 
-    @NotNull
     private Double salePrice;
 
-    @NotNull
     private Double purchasePrice;
 
     private Double taxRate;
 
-    @NotBlank
     private String category;
 
 }

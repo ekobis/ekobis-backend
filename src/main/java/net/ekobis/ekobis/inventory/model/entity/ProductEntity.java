@@ -22,16 +22,15 @@ public class ProductEntity extends BaseEntity {
     @UuidGenerator
     private String productId;
 
-    private String name;
+    private String productName;
 
     private String description;
 
-    private Double price;
+    private Double salePrice;
 
     private Double purchasePrice;
 
-    private Double tax;
+    private Double taxRate;
 
-    @ManyToOne
-    private CategoryEntity category;
+    private String category;
 }
