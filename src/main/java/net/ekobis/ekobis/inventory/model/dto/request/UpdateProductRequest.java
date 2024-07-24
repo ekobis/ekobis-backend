@@ -1,38 +1,37 @@
-package net.ekobis.ekobis.inventory.model.entity;
+package net.ekobis.ekobis.inventory.model.dto.request;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.ekobis.ekobis.common.model.entity.BaseEntity;
-import org.hibernate.annotations.UuidGenerator;
 
-import java.time.LocalDate;
-
-@Entity
-@Table(name = "products")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductEntity extends BaseEntity {
-    @Id
-    @GeneratedValue
-    @UuidGenerator
+public class UpdateProductRequest {
+
+    @NotBlank
+    @NotNull
     private String productId;
 
+    @NotBlank
     private String productName;
 
+    @NotBlank
     private String description;
 
+    @NotNull
     private Double salePrice;
 
+    @NotNull
     private Double purchasePrice;
 
     private Double taxRate;
 
+    @NotBlank
     private String category;
 
-    private boolean active;
 }
